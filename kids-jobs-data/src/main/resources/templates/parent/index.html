@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${parents} and ${parents.size()}">No Parents Yet :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Parents</th>
+
+    </tr>
+
+    <tr th:each="parent : ${parents}">
+        <td th:text="${parent.name}"></td>
+
+    </tr>
+
+</table>
+
+
+<a href = "/parent/add">Add a Parent</a> |
+<a href = "/parent/remove">Remove a Parent</a>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${parent}">
+    <div class="form-group">
+        <label th:for="name">Parent Name</label>
+        <input th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="password">Password</label>
+        <input th:type="password" th:field="*{password}" />
+        <span th:errors="*{password}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="confirm">Confirm Password</label>
+        <input th:field="*{confirm}" />
+        <span th:errors="*{confirm}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="email">Email</label>
+        <input th:field="*{email}" />
+        <span th:errors="*{email}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="phonenumber">Phone Number</label>
+        <input th:field="*{phonenumber}" />
+        <span th:errors="*{phonenumber}" class="error"></span>
+    </div>
+
+
+
+    <input type = "submit" value ="Add Parent"/>
+</form>
+</body>
+</html>
