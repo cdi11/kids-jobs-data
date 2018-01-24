@@ -1,1 +1,3 @@
 # kids-jobs-data
+
+This repsitory is set up to display my personal project...
