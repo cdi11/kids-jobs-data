@@ -24,7 +24,8 @@ public class JobController {
     @Autowired
     private JobDao jobDao;
 
-
+    @Autowired
+    private ChildDao childDao;
 
 
     // Request path: /job

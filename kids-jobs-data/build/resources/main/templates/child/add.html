@@ -28,7 +28,7 @@
     <div class="form-group">
         <label th:for="type">Reward</label>
         <select name="rewardId">
-            <option th:each="reward : ${rewardss}"
+            <option th:each="reward : ${rewards}"
                     th:text="${reward.name}"
                     th:value="${reward.id}"></option>
         </select>

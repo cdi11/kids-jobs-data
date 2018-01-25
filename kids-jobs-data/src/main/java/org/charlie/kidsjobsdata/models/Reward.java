@@ -28,7 +28,6 @@ public class Reward {
 
 
     public Reward(String name) {
-        this();
         this.name = name;
 
     }

@@ -42,7 +42,6 @@ public class Parent {
 
 
     public Parent(String name) {
-        this();
         this.name = name;
 
     }

@@ -59,12 +59,13 @@ public class ChildController {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Child");
             model.addAttribute("jobs", jobDao.findAll());
-            model.addAttribute( "rewards", rewardDao.findAll());
+            model.addAttribute("rewards", rewardDao.findAll());
+
             return "child/add";
 
         }
-        //Job selectjob = jobDao.findOne(jobId);
-        //newChild.setJob(selectjob);
+        //Job selectjob = jobDao.findOne(form.getJobId);
+        //newChild.addjob(selectjob);
         childDao.save(newChild);
         return "redirect:";
     }
@@ -104,7 +105,7 @@ public class ChildController {
         AddChildJobForm form = new AddChildJobForm(
                 jobDao.findAll(),
                 child);
-        model.addAttribute("title", "Add Job to Child " + child.getName());
+        model.addAttribute("title", "Add Job to " + child.getName());
         model.addAttribute("form", form);
         return "child/add-job";
     }
@@ -118,9 +119,9 @@ public class ChildController {
 
         }
 
-        Job theJob = jobDao.findOne(form.getJobId());
+        Job selectJob = jobDao.findOne(form.getJobId());
         Child theChild = childDao.findOne(form.getChildId());
-        theChild.addJob(theJob);
+        theChild.addItem(selectJob);
         childDao.save(theChild);
 
         return "redirect:/child/single/" + theChild.getId();
@@ -128,5 +129,15 @@ public class ChildController {
 
     }
 
+    @RequestMapping(value = "single/{childId}", method = RequestMethod.GET)
+    public String singleChild(Model model, @PathVariable int childId) {
+        Child child = childDao.findOne(childId);
+        model.addAttribute("title", child.getName());
+        model.addAttribute("jobs", child.getJobs());
+        model.addAttribute("childId", child.getId());
 
+        return "child/single";
+
+
+    }
 }

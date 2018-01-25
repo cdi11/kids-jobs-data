@@ -8,21 +8,24 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<p th:unless="${children} and ${children.size()}">No Parents Yet :(</p>
+<div>Children</div>
+
+<p th:unless="${children} and ${children.size()}">No Children Yet :(</p>
 
 
 <table class="table">
 
     <tr>
-        <th>Children</th>
+
 
     </tr>
 
-    <tr th:each="child : ${children}">
-        <td th:text="${child.name}"></td>
+    <tr>
+        <li th:each="child :${children}">
+            <a th:href="'/child/single/' + ${child.id}" th:text="${child.name}"></a>
+        </li>
 
     </tr>
-
 </table>
 
 

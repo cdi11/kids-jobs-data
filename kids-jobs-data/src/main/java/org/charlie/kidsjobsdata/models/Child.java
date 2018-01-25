@@ -33,7 +33,6 @@ public class Child {
     private List<Reward>  rewards;
 
     public Child(String name) {
-        this();
         this.name = name;
 
     }
@@ -44,7 +43,7 @@ public class Child {
 
     public Child() { }
 
-    public void addJob(Job job) { jobs.add(job); }
+    public void addItem(Job item) { jobs.add(item); }
 
 
     public String getName() {
@@ -59,7 +58,7 @@ public class Child {
 
     //public void setJob (Job job) { this.job = job;}
 
-    //public List<Job> getJobs() { return jobs; }
+    public List<Job> getJobs() { return jobs; }
 
     public String getPassword() {
         return password;

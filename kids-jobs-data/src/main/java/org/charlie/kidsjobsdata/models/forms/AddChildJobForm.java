@@ -10,7 +10,7 @@ public class AddChildJobForm {
     @NotNull
     private int childId;
 
-
+    @NotNull
     private int jobId;
 
     private Iterable<Job> jobs;

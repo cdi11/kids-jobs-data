@@ -25,7 +25,6 @@ public class Job {
 
 
     public Job(String name) {
-        this();
         this.name = name;
 
     }
