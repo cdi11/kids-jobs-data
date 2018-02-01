@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" th:object="${form}" action="/child/add-reward">
+    <div class="form-group">
+        <label th:for="rewardId">Reward</label>
+        <select name="rewardId">
+            <option th:each="reward : *{rewards}"
+                    th:text="${reward.name}"
+                    th:value="${reward.id}"></option>
+        </select>
+
+
+    </div>
+
+    <input type="hidden" name="childId" th:value="*{child.id}" />
+
+    <input type="submit" value="Add Reward" />
+
+</form>
+
+</body>
+</html>

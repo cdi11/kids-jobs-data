@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<div>Jobs</div>
+<ul>
+    <li th:each="job : ${jobs}" th:text="${job.name}"></li>
+
+</ul>
+
+<div>Rewards</div>
+<ul>
+    <li th:each="reward : ${rewards}" th:text="${reward.name}"></li>
+
+</ul>
+
+<p th:unless="${rewards.size()}"><i>No Rewards yet</i></p>
+
+<p th:unless="${jobs.size()}"><i>No Jobs yet</i></p>
+<p><a th:href="'/child/add-job/' + ${childId}">Add Job</a> |
+<a th:href="'/child/add-reward/' + ${childId}">Add Reward</a></p>
+
+</body>
+</html>

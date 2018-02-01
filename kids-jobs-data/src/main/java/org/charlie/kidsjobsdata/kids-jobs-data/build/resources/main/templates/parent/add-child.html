@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" th:object="${form}" action="/parent/add-child">
+    <div class="form-group">
+        <label th:for="childId">Child</label>
+        <select name="childId">
+            <option th:each="child : *{children}"
+                    th:text="${child.name}"
+                    th:value="${child.id}"></option>
+        </select>
+
+
+    </div>
+
+    <input type="hidden" name="parentId" th:value="*{parent.id}" />
+
+    <input type="submit" value="Add Child" />
+
+</form>
+
+</body>
+</html>

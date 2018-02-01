@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${rewards} and ${rewards.size()}">No Rewards Yet :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Reward</th>
+
+    </tr>
+
+    <tr th:each="reward : ${rewards}">
+        <td th:text="${reward.name}"></td>
+
+    </tr>
+
+</table>
+
+
+<a href = "/reward/add">Add a Reward</a> |
+<a href = "/reward/remove">Remove a Reward</a>
+
+</body>
+</html>
